@@ -13,7 +13,7 @@ plt.plot(w, np.abs(h_freq))  # magnitude
 plt.xlabel('frequency(Hz)')
 plt.ylabel('Magnitude')
 plt.subplot(2, 1, 2)
-plt.plot(w, np.angle(h_freq))  # phase
+plt.plot(w, np.unwrap(np.angle(h_freq)))  # phase
 plt.xlabel('frequency(Hz)')
 plt.ylabel('Phase(angel)')
 plt.show()

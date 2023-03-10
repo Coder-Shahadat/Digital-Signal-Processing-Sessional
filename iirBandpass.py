@@ -10,6 +10,6 @@ plt.subplot(2, 1, 1)
 plt.plot(w, np.abs(h))
 
 plt.subplot(2, 1, 2)
-plt.plot(w, np.angle(h))
+plt.plot(w, np.unwrap(np.angle(h)))
 plt.tight_layout()
 plt.show()
