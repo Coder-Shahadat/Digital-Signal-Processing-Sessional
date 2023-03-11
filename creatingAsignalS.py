@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 fs = 100
 t = np.arange(0, 1.01, 1 / fs)
-s = np.sin(2 * np.pi * t * 5) + np.sin(2 * np.pi * t * 15) + np.sin(2 * np.pi * t * 30);
+s = np.sin(2 * np.pi * t * 5) + np.sin(2 * np.pi * t * 15) + np.sin(2 * np.pi * t * 30)
 plt.subplot(3, 1, 1)
 plt.plot(t, s)
 

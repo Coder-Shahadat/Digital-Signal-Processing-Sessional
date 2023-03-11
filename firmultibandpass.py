@@ -7,13 +7,19 @@ fs = 8000
 fc = np.array([1200, 1400, 2500, 2600])
 b = sig.firwin(N + 1, fc, fs=fs, window='hamming', pass_zero='bandpass')
 w, h_freq = sig.freqz(b, fs=fs)
-plt.subplot(2, 1, 1)
-plt.plot(w, np.abs(h_freq))
+z, p, k = sig.tf2zpk(b, 1)
+
+plt.subplot(3, 1, 1)
+plt.plot(w, np.abs(h_freq))  # magnitude
 plt.xlabel('frequency(Hz)')
 plt.ylabel('Magnitude')
 
-plt.subplot(2, 1, 2)
-plt.plot(w, np.unwrap(np.angle(h_freq)))
+plt.subplot(3, 1, 2)
+plt.plot(w, np.unwrap(np.angle(h_freq)))  # phase
 plt.xlabel('frequency(Hz)')
 plt.ylabel('Phase(angel)')
+
+plt.subplot(3, 1, 3)
+plt.scatter(np.real(z), np.imag(z), marker='o', edgecolors='b')
+plt.scatter(np.real(p), np.imag(p), marker='x', color='b')
 plt.show()
